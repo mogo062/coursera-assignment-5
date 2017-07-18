@@ -37,10 +37,39 @@ function routeConfig ($stateProvider) {
       controllerAs : 'menuItemsCtrl',
       resolve: {
         menuItems: ['$stateParams','MenuService',function($stateParams,MenuService){
-          console.log(MenuService.getMenuItems($stateParams.category));
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+    .state('public.signup',{
+      url: '/signup',
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'SignUpController',
+      controllerAs : 'signupCtrl',
+      resolve: {
+        User : function () {
+          var User = {
+              firstName : '',
+              lastName : '',
+              email : '',
+              address: '',
+              phoneNumber: '',
+              menuNumber: ''
+          };
+          return User;
+        }
+      }
+    })
+    .state('public.userinfo', {
+        url: '/myinfo',
+        templateUrl: 'src/public/myinfo/myinfo.html',
+        controller: 'MyInfoController',
+        controllerAs : 'myinfoCtrl',
+        resolve: {
+          User : ['UserService', function (UserService){
+            return UserService.getUser();
+          }]
+        }
     });
 }
 })();

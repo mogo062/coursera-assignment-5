@@ -1,0 +1,42 @@
+<form name="signForm" novalidate>
+  <div class="form-group has-feedback form-group-50  {{(signForm.firstName.$invalid && signForm.firstName.$touched) ? 'has-error ' : ''}} {{signForm.firstName.$valid ? 'has-success' : ''}}">
+    <label for="firstName">First name</label>
+    <input type="text" name="firstName" class="form-control" placeholder="pick a first name" ng-model="$ctrl.User.firstName" required />
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  </div>
+  <div class="form-group has-feedback form-group-50 {{(signForm.lastName.$invalid && signForm.lastName.$touched) ? 'has-error ' : ''}} {{signForm.lastName.$valid ? 'has-success' : ''}}">
+    <label for="lastName">Last name</label>
+    <input type="text" name="lastName" class="form-control" placeholder="pick a last name" ng-model="$ctrl.User.lastName" required />
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  </div>
+  <div class="form-group has-feedback form-group-50 {{(signForm.email.$invalid && signForm.email.$touched) ? 'has-error ' : ''}} {{signForm.email.$valid ? 'has-success' : ''}}">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control" placeholder="Email" ng-model="$ctrl.User.email" required />
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span ng-if="signForm.email.$invalid && signForm.email.$touched">
+        Must be a valid email address: handle@domain format
+    </span>
+  </div>
+  <div class="form-group has-feedback form-group-50 {{(signForm.address.$invalid && signForm.address.$touched) ? 'has-error ' : ''}} {{signForm.address.$valid ? 'has-success' : ''}}">
+    <label for="address">Address</label>
+    <input type="text" name="address" class="form-control" placeholder="pick an address" ng-model="$ctrl.User.address" required />
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  </div>
+  <div class="form-group has-feedback form-group-50 {{(signForm.phoneNumber.$invalid && signForm.phoneNumber.$touched) ? 'has-error ' : ''}} {{signForm.phoneNumber.$valid ? 'has-success' : ''}}">
+    <label for="phoneNumber">Phone number</label>
+    <input type="text" name="phoneNumber" class="form-control"  placeholder="Phone ###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="$ctrl.User.phoneNumber" required />
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span ng-if="signForm.phoneNumber.$invalid && signForm.phoneNumber.$touched">
+        Phone must be in the format ###-###-####.
+    </span>
+  </div>
+    <div class="form-group has-feedback form-group-50 {{ $ctrl.error  ? 'has-error' : '' }} {{ !($ctrl.error === undefined)  ? 'has-success' : '' }}">
+      <label for="menuNumber">Menu number (short name)</label>
+      <input type="text" name="menuNumber" class="form-control"  placeholder="Specify menu number" ng-model="$ctrl.User.menuNumber" />
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span ng-if="$ctrl.error">
+          {{$ctrl.error}}
+      </span>
+    </div>
+  <button type="submit" class="btn btn-default" ng-disabled="signForm.$invalid" ng-click="$ctrl.save($ctrl.User);">Sign up</button>
+</form>

@@ -1,0 +1,30 @@
+<div class="container" >
+    <ul class="list-group" ng-if="myinfoCtrl.User">
+      <li class="list-group-item text-color li-width li-margin">
+        <span class="badge">First name</span>
+         {{  myinfoCtrl.User.firstName}}
+      </li>
+      <li class="list-group-item text-color li-width li-margin">
+        <span class="badge">Last name</span>
+         {{  myinfoCtrl.User.lastName}}
+      </li>
+      <li class="list-group-item text-color li-width li-margin">
+        <span class="badge">Email</span>
+         {{  myinfoCtrl.User.email}}
+      </li>
+      <li class="list-group-item text-color li-width li-margin">
+        <span class="badge">Address</span>
+         {{  myinfoCtrl.User.address}}
+      </li>
+      <li class="list-group-item text-color li-width li-margin">
+        <span class="badge">Phone number</span>
+         {{  myinfoCtrl.User.phoneNumber}}
+      </li>
+      <menu-item menu-item="myinfoCtrl.User.menuItem"> </menu-item>
+    </ul>
+
+    <div ng-if="!myinfoCtrl.User">
+      Not Signed Up Yet. <a ui-sref="public.signup"> Sign up Now!</a>
+    </div>
+
+</div>

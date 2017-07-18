@@ -111,6 +111,24 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
+.legend-color{
+  color : #FFFFF0;
+}
+.form-control-50{
+  width: 50%;
+}
+.form-group-50{
+  width: 50%;
+}
+.text-color{
+  color : #557c3e;
+}
+.li-width{
+  width : 100%;
+}
+.li-margin{
+  margin : 0 0 10px 0;
+}
 /* END SINGLE CATEGORY PAGE */
 
 

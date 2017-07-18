@@ -37,10 +37,15 @@
           }
         }
         return $http.get(ApiPath +'/menu_items.json', config).then(function (response) {
-        
+          return response.data;
+        });
+      };
+
+      service.getMenuItem = function(menuItem){
+        return $http.get(ApiPath +'/menu_items/'+menuItem+".json").then(function (response) {
           return response.data;
         });
 
-      };
+      }
     };
 })();
